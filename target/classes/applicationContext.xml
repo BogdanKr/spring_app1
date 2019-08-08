@@ -10,4 +10,10 @@
     <bean id="musicBean"
           class="ua.krasun.springtest.RockMusic">
     </bean>
+
+    <bean id="musicPlayer"
+          class="ua.krasun.springtest.MusicPlayer">
+        <constructor-arg ref="musicBean"/>
+    </bean>
+
 </beans>
