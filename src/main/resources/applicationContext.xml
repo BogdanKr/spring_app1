@@ -11,14 +11,14 @@
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
     <context:component-scan base-package="ua.krasun.springtest"/>
 
-    <bean id="ukraineMusic"
-          class="ua.krasun.springtest.UkraineMusic"
-          init-method="initMethod"
-          destroy-method="destroyMethod"
-          scope="prototype"
-          factory-method="factoryMethod"
-    >
-    </bean>
+<!--    <bean id="ukraineMusic"-->
+<!--          class="ua.krasun.springtest.UkraineMusic"-->
+<!--          init-method="initMethod"-->
+<!--          destroy-method="destroyMethod"-->
+<!--          scope="prototype"-->
+<!--          factory-method="factoryMethod">-->
+<!--    </bean>-->
+
     <util:list list-class="java.util.ArrayList" id="musicList"
                value-type="ua.krasun.springtest.Music">
         <ref bean="classicalMusic"/>
@@ -26,14 +26,14 @@
         <ref bean="ukraineMusic"/>
     </util:list>
 
-    <bean id="musicPlayer"
-          class="ua.krasun.springtest.MusicPlayer">
-        <!--        <constructor-arg ref="musicBean"/>-->
+<!--    <bean id="musicPlayer"-->
+<!--          class="ua.krasun.springtest.MusicPlayer">-->
+<!--                <constructor-arg ref="musicBean"/>-->
 <!--        <property name="musicList" ref="musicList"/>-->
-        <!--        <property name="name" value="Some name"/>-->
-        <!--        <property name="volume" value="50"/>-->
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
+<!--                <property name="name" value="Some name"/>-->
+<!--                <property name="volume" value="50"/>-->
+<!--        <property name="name" value="${musicPlayer.name}"/>-->
+<!--        <property name="volume" value="${musicPlayer.volume}"/>-->
+<!--    </bean>-->
 
 </beans>
