@@ -1,13 +1,15 @@
 package ua.krasun.springtest;
 
-import java.util.ArrayList;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.List;
 
 public class MusicPlayer {
-    private List<Music> musicList = new ArrayList<>();
+    private List<Music> musicList;
     private String name;
     private int volume;
 
+    @Autowired
     public void setMusicList(List<Music> musicList) {
         this.musicList = musicList;
     }
@@ -32,8 +34,9 @@ public class MusicPlayer {
     }
 
 
-    public void playMusic() {
+    public String playMusic() {
         musicList.stream().forEach(music -> System.out.println("Playing " + music.getSong()) );
+        return ":)";
         //System.out.println("Playing " + );
     }
 }

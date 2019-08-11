@@ -9,17 +9,14 @@
         http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
 
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
-    <bean id="rockMusic"
-          class="ua.krasun.springtest.RockMusic">
-    </bean>
-    <bean id="classicalMusic"
-          class="ua.krasun.springtest.ClassicalMusic">
-    </bean>
+    <context:component-scan base-package="ua.krasun.springtest"/>
+
     <bean id="ukraineMusic"
           class="ua.krasun.springtest.UkraineMusic"
           init-method="initMethod"
           destroy-method="destroyMethod"
           scope="prototype"
+          factory-method="factoryMethod"
     >
     </bean>
     <util:list list-class="java.util.ArrayList" id="musicList"
@@ -32,7 +29,7 @@
     <bean id="musicPlayer"
           class="ua.krasun.springtest.MusicPlayer">
         <!--        <constructor-arg ref="musicBean"/>-->
-        <property name="musicList" ref="musicList"/>
+<!--        <property name="musicList" ref="musicList"/>-->
         <!--        <property name="name" value="Some name"/>-->
         <!--        <property name="volume" value="50"/>-->
         <property name="name" value="${musicPlayer.name}"/>
